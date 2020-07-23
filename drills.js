@@ -114,7 +114,7 @@ function partition(array, start, end) {
   return j;
 }
 
-// console.log(qSort([89, 30, 25, 32, 72, 70, 51, 42, 25, 24, 53, 55, 78, 50, 13, 40, 48, 32, 26, 2, 14, 33, 45, 72, 56, 44, 21, 88, 27, 68, 15, 62, 93, 98, 73, 28, 16, 46, 87, 28, 65, 38, 67, 16, 85, 63, 23, 69, 64, 91, 9, 70, 81, 27, 97, 82, 6, 88, 3, 7, 46, 13, 11, 64, 76, 31, 26, 38, 28, 13, 17, 69, 90, 1, 6, 7, 64, 43, 9, 73, 80, 98, 46, 27, 22, 87, 49, 83, 6, 39, 42, 51, 54, 84, 34, 53, 78, 40, 14, 5]));
+//console.log(qSort([89, 30, 25, 32, 72, 70, 51, 42, 25, 24, 53, 55, 78, 50, 13, 40, 48, 32, 26, 2, 14, 33, 45, 72, 56, 44, 21, 88, 27, 68, 15, 62, 93, 98, 73, 28, 16, 46, 87, 28, 65, 38, 67, 16, 85, 63, 23, 69, 64, 91, 9, 70, 81, 27, 97, 82, 6, 88, 3, 7, 46, 13, 11, 64, 76, 31, 26, 38, 28, 13, 17, 69, 90, 1, 6, 7, 64, 43, 9, 73, 80, 98, 46, 27, 22, 87, 49, 83, 6, 39, 42, 51, 54, 84, 34, 53, 78, 40, 14, 5]));
 
 //4. Implementing merge sort
 
@@ -156,3 +156,41 @@ function merge(left, right, array) {
 
 //5. Sorting a linked list using merge sort
 
+let LL = new LinkedList();
+
+LL.insertLast(3);
+LL.insertLast(2);
+LL.insertLast(1);
+
+
+// console.log(LL.mergeSort(LL));
+
+//6. Bucket Sort
+
+function bucketSort(array, min, max) {
+  let bucketSmall = [];
+  let bucketBig = [];
+  let middle = Math.floor((min + max) / 2);
+  for(let i = 0; i < array.length; i++) {
+    if(array[i] <= middle) {
+      bucketSmall.push(array[i]);
+    }
+    else {
+      bucketBig.push(array[i]);
+    }
+  }
+  return bucketSmall.concat(bucketBig);
+
+}
+
+//7. Sort in Place
+
+function sortInPlace(arr) {
+  for(let i = 0; i < arr.length; i++) {
+    let random = Math.floor(Math.random() * arr.length);
+    swap(arr, i, random);
+  }
+  return arr;
+}
+
+console.log(sortInPlace([10, 4, 8, 12, 16, 52, 33]));
