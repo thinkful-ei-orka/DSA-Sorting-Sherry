@@ -1,3 +1,5 @@
+const LinkedList = require('./ll.js');
+
 // 1. Understanding Merge Sort
 
 // 21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40
@@ -45,11 +47,41 @@
 // or 17, and larger to the right
 
 // 14, 17, 13, 15, 19, 10, 3, 16, 9, 12
+//FROM FIRST
+// L 13, 10, 3, 9, 12, 14
+// R 17, 15, 19, 16
+//L - L: 10, 3, 9, 12, 13
+//L - R: 14
+
+//Left side gets completely sorted,
+// THEN
+//Right side gets completely sorted,
+//And then they meet in the middle <3
+
+//FROM LAST
+//L 10, 3, 9
+//R 12, 14, 17, 13, 15, 19, 16
+//L - L: 3
+//L - R: 9, 10
+
+//R -L: 12, 14, 15
+//R- R: 16, 17, 19
+
+// 10, 3, 9, 12, 19, 14, 17, 16, 13, 15
+// 10, 3, 9, 12, 14, 13, 15, 16, 19, 17
+// 10, 3, 9, 12, 14, 13, 15, 16, 19, 17
+
+// 13, 10, 3, 9, 12, 14, 17, 15, 19, 16
+// 10, 3, 9, 12, 13, 14, 17, 15, 19, 16
+
 //Show Second Partioning
-//2.2) Last item: 10, 3, 9, 12, 14, 13, 15, 16, 17, 19
-// 10, 3, 9, 12 14, 17, 13, 15, 19, 16 (first)
-// First item: 10, 3, 9, 12, 13, 14, 17, 15, 19, 16
-// 13, 10, 3, 9, 12, 14, 17, 15, 19, 16 (first)
+//2.2) Last item: 
+//L - L: 3
+//L - R: 9, 10
+
+// First item: 
+//L - L: 10, 3, 9, 12, 13
+//L - R: 14
 
 //3 Implementing Quicksort
 
